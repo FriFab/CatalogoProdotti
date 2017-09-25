@@ -2,15 +2,13 @@ package it.uniroma3.catalogo.domain;
 
 import java.io.Serializable;
 
+
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
-
-import it.uniroma3.catalogo.validator.ProductId;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -31,7 +29,6 @@ public class Product implements Serializable{
 	
 	@Id
 	@Pattern(regexp="P[1-9]+", message="{Pattern.Product.productId.validation}")
-	@ProductId
 	private String productId;
 	
 	@Size(min=4, max=50, message="{Size.Product.name.validation}")
@@ -45,24 +42,29 @@ public class Product implements Serializable{
 	private String description;
 	private String manufacturer;
 	private String category;
-	private long unitsInStock;
-	private long unitsInOrder;
+	private Integer unitsInStock;
+	private Integer unitsInOrder;
 	private boolean discontinued;
-	private String condition;
 	
 	@ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
 	private List<Supplier> suppliers;
 	
-	@JsonIgnore
 	private MultipartFile productImage;
 
 	public Product() {
 	}
 
-	public Product(String productId, String name, BigDecimal unitPrice) {
+	public Product(String productId, String name, String description, String manufacturer, String category, BigDecimal unitPrice, Integer  unitsInStock, Integer unitsInOrder) {
 		this.productId = productId;
 		this.name = name;
 		this.unitPrice = unitPrice;
+		this.description=description;
+		this.manufacturer = manufacturer;
+		this.category = category;
+		
+		if(unitsInStock==null || unitsInStock<0 ) this.unitsInStock = 0;
+		if(unitsInOrder==null || unitsInOrder<0 ) this.unitsInOrder = 0;
+
 		this.suppliers = new ArrayList<>();
 	}
 
@@ -118,7 +120,7 @@ public class Product implements Serializable{
 		return unitsInStock;
 	}
 
-	public void setUnitsInStock(long unitsInStock) {
+	public void setUnitsInStock(Integer unitsInStock) {
 		this.unitsInStock = unitsInStock;
 	}
 
@@ -126,7 +128,7 @@ public class Product implements Serializable{
 		return unitsInOrder;
 	}
 
-	public void setUnitsInOrder(long unitsInOrder) {
+	public void setUnitsInOrder(Integer unitsInOrder) {
 		this.unitsInOrder = unitsInOrder;
 	}
 
@@ -138,13 +140,6 @@ public class Product implements Serializable{
 		this.discontinued = discontinued;
 	}
 
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
 
 	@Override
 	public boolean equals(Object obj) {

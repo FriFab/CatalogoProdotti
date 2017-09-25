@@ -2,11 +2,10 @@ package it.uniroma3.catalogo.controller;
 
 
 import java.io.File;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,18 +24,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.catalogo.domain.Product;
-import it.uniroma3.catalogo.domain.repository.ProductRepository;
 import it.uniroma3.catalogo.exception.NoProductsFoundUnderCategoryException;
 import it.uniroma3.catalogo.exception.ProductNotFoundException;
 import it.uniroma3.catalogo.service.ProductService;
 import it.uniroma3.catalogo.validator.ProductValidator;
-import it.uniroma3.catalogo.validator.UnitsInStockValidator;
 
 @Controller
 @RequestMapping("market")
 public class ProductController {
 
-	@Autowired
+	
 	private ProductService productService;
 	
 	@Autowired
@@ -91,7 +87,7 @@ public class ProductController {
 	
 	
 	@RequestMapping(value = "/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProduct") @Valid Product newProduct, BindingResult result, HttpServletRequest request) {
+	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result, HttpServletRequest request) {
 
 		if(result.hasErrors()) return "addProduct";
 		
@@ -110,15 +106,6 @@ public class ProductController {
 				throw new RuntimeException("Product Image saving failed", e);
 				}
 		}
-		
-//		MultipartFile userManual = newProduct.getUserManual();
-//		if(userManual != null && !userManual.isEmpty()) {
-//			try {
-//				userManual.transferTo(new File(rootDirectory+"resources\\pdf/"+newProduct.getProductId()+".pdf"));
-//			} catch (Exception e) {
-//				throw new RuntimeException("User Manual saving failed", e);
-//			}
-//		}
 
 		productService.addProduct(newProduct);
 		return "redirect:/market/products";
@@ -151,11 +138,6 @@ public class ProductController {
 		return mav;
 	}
 
-//	@RequestMapping("/products/invalidPromoCode")
-//	public String invalidPromoCode() {
-//		return "invalidPromoCode";
-//	}
-	
 	
 
 }

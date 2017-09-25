@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.catalogo.domain.Product;
 import it.uniroma3.catalogo.domain.User;
-import it.uniroma3.catalogo.domain.repository.UserRepository;
+import it.uniroma3.catalogo.repository.UserRepository;
 import it.uniroma3.catalogo.service.UserService;
 
 @Service

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import it.uniroma3.catalogo.domain.Supplier;
-import it.uniroma3.catalogo.domain.repository.SupplierRepository;
+import it.uniroma3.catalogo.repository.SupplierRepository;
 import it.uniroma3.catalogo.service.SupplierService;
 
 public class SupplierServiceImpl implements SupplierService{

@@ -6,12 +6,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Welcome</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="jumbotron">
 		<h1>${greeting}</h1>
 		<p>${tagline}</p>
 	</div>
+	<form action="" method="get">
+		<div class="form-actions">
+			<p>
+				<a
+					href=" <spring:url value="login" /> "
+					class="btn btn-primary"> <span
+					class="glyphicon-info-sign glyphicon" /></span> Entra
+				</a>
+			</p>
+		</div>
+	</form>
 </body>
 </html>

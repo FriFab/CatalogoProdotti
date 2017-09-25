@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <Resource id="myDataSource" type="javax.sql.DataSource">#Mon Sep 19 14:47:05 CEST 2016
+jdbcDriver=org.postgresql.Driver
+password=post
+userName=post
+jdbcUrl=jdbc\:postgresql\://localhost\:5432/Catalogo
+</Resource>
+</resources>

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.catalogo.domain.Product;
-import it.uniroma3.catalogo.domain.repository.ProductRepository;
+import it.uniroma3.catalogo.repository.ProductRepository;
 import it.uniroma3.catalogo.service.ProductService;
 
 @Service

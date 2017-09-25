@@ -9,14 +9,13 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 
-	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String userID;
 	
 	private String name;
 	private String address;
+	private String password;
 	private long noOfOrdersMade;
 	
 	@OneToOne
@@ -55,6 +54,14 @@ public class User {
 	}
 	public void setNoOfOrdersMade(long noOfOrdersMade) {
 		this.noOfOrdersMade = noOfOrdersMade;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

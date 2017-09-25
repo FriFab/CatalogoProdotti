@@ -5,8 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.catalogo.domain.Cart;
-import it.uniroma3.catalogo.domain.repository.CartRepository;
-
+import it.uniroma3.catalogo.repository.CartRepository;
 import it.uniroma3.catalogo.service.CartService;
 
 @Service

@@ -19,7 +19,7 @@ import it.uniroma3.catalogo.service.CartService;
 @RequestMapping(value = "rest/cart")
 public class CartItemController {
 
-	@Autowired
+	
 	private CartService cartService;
 
 	@RequestMapping(method = RequestMethod.POST)
