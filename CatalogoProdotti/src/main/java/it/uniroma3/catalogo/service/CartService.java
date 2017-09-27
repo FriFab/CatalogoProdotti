@@ -6,7 +6,7 @@ public interface CartService {
 	
 	void create(Cart cartDto);
 	void delete(String id);
-	void addItem(String cartId, String productId);
+	void addItem(Cart cartId, String productId);
 	void removeItem(String cartId, String productId);
 
 }

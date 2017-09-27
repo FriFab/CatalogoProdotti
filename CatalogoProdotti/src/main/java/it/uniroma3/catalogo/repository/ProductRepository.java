@@ -10,7 +10,7 @@ public interface ProductRepository {
 	List<Product> getAllProducts();
 	void updateStock(String productID, long noOfUnits);
 	List<Product> getProductsByCategory(String category);
-    List<Product> getProductsByFilter(Map<String, List<String>> filterParams);  
+  //  List<Product> getProductsByFilter(Map<String, List<String>> filterParams);  
     Product getProductById(String productId);
     
     //List<Product> filterProducts(Map<String, List<String>> filterParams);

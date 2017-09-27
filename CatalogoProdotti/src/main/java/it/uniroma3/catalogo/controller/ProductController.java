@@ -35,9 +35,6 @@ public class ProductController {
 
 	
 	private ProductService productService;
-	
-	@Autowired
-	private ProductValidator productValidator;
 
 
 	@RequestMapping("/products")
@@ -49,7 +46,7 @@ public class ProductController {
 	@RequestMapping("/update/stock")
 	public String updateStock(Model model) {
 		productService.updateAllStock();
-		return "redirect:/market/products";
+		return "redirect:/products";
 	}
 
 	@RequestMapping("/products/{category}")
@@ -71,7 +68,7 @@ public class ProductController {
 //		return "products";
 //	}
 
-	   @RequestMapping("/product")
+	   @RequestMapping("/product/{id}")
 	   public String getProductById(@RequestParam("id") String productId, Model model) {
 	  	model.addAttribute("product", productService.getProductById(productId));
 	   	return "product";
@@ -108,23 +105,7 @@ public class ProductController {
 		}
 
 		productService.addProduct(newProduct);
-		return "redirect:/market/products";
-	}
-	
-	@InitBinder
-	private void initialiseBinder(WebDataBinder binder) {
-		binder.setAllowedFields("productId",
-				"name",
-				"unitPrice",
-				"description",
-				"manufacturer",
-				"category",
-				"unitsInStock",
-				"condition",
-				"productImage",
-				"language"
-				);
-		binder.setValidator(productValidator);
+		return "redirect:/products";
 	}
 	
 	

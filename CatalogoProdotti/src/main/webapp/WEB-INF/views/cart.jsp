@@ -25,10 +25,8 @@ charset=ISO-8859-1">
 			<div>
 				<a class="btn btn-danger pull-left" ng-click="clearCart()"> <span
 					class="glyphicon glyphicon-removesign"></span> Clear Cart </a>
-				<a href="#" class="btn btn-success
-pull-right"> <span
-					class="glyphicon-shopping-cart
-glyphicon"></span> Check out
+				<a href="#" class="btn btn-success pull-right"> <span
+					class="glyphicon-shopping-cart glyphicon"></span> Check out
 				</a>
 			</div>
 			<table class="table table-hover">
@@ -37,7 +35,7 @@ glyphicon"></span> Check out
 					<th>Unit price</th>
 					<th>Quantity</th>
 					<th>Price</th>
-					<th>Action</th>
+					
 				</tr>
 				<tr ng-repeat="item in cart.cartItems">
 					<td>{{item.product.productId}}- {{item.product.name}}</td>
@@ -57,11 +55,9 @@ glyphicon"></span> Check out
 					<th></th>
 				</tr>
 			</table>
-			<a href="<spring:url
-value="/market/products" />"
+			<a href="<spring:url value="/products" />"
 				class="btn btn-default"> <span
-				class="glyphicon-hand-left
-glyphicon"></span> Continue shopping
+				class="glyphicon-hand-left glyphicon"></span> Continue shopping
 			</a>
 		</div>
 	</section>

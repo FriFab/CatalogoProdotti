@@ -12,21 +12,21 @@ charset=ISO-8859-1">
 	<section>
 		<div class="jumbotron">
 			<div class="container">
-				<h1>Customers</h1>
-				<p>All the our customers</p>
+				<h1>Fornitori</h1>
+				<p>Tutti i nostri fornitori</p>
 			</div>
 		</div>
 	</section>
 	<section class="container">
 		<div class="row">
-			<c:forEach items="${customers}" var="customer">
+			<c:forEach items="${Supplier}" var="supplier">
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<div class="caption">
 						
-							<h3>${customer.name}</h3>
-							<p>${customer.description}</p>
-							<p>$${customer.unitPrice}</p>
+							<h3>${supplier.name}</h3>
+							<p>${supplier.address}</p>
+							<p>$${supplier.email}</p>
 						   
 						</div>
 					</div>

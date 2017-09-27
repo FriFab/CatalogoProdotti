@@ -25,7 +25,7 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public void addItem(String cartId, String productId) {
+	public void addItem(Cart cartId, String productId) {
 		cartRepository.addItem(cartId, productId);
 	}
 

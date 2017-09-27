@@ -50,21 +50,6 @@ public class Cart implements Serializable{
 		this.grandTotal = grandTotal;
 	}
 
-//
-//	public void updateGrandTotal() {
-//		Function<CartItem, BigDecimal> totalMapper = cartItem -> cartItem.getTotalPrice();
-//		BigDecimal grandTotal = cartItems.stream().map(totalMapper)
-//				.reduce(BigDecimal.ZERO, BigDecimal::add);
-//		this.setGrandTotal(grandTotal);
-//	}
-//
-//	public CartItem getItemByProductId(String productId) {
-//		return cartItems.stream().filter(cartItem -> cartItem.getProduct().getProductId()
-//				.equals(productId))
-//				.findAny().orElse(null);
-//
-//	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

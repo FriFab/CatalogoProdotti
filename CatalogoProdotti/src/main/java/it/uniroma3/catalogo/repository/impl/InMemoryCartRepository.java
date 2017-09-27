@@ -1,24 +1,18 @@
 package it.uniroma3.catalogo.repository.impl;
 
-import java.util.HashMap;
+
 
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import it.uniroma3.catalogo.domain.Cart;
 import it.uniroma3.catalogo.domain.CartItem;
 import it.uniroma3.catalogo.domain.Product;
 import it.uniroma3.catalogo.repository.CartRepository;
-import it.uniroma3.catalogo.service.ProductService;
 
 @Repository
 public class InMemoryCartRepository implements CartRepository{
@@ -36,8 +30,14 @@ public class InMemoryCartRepository implements CartRepository{
 		em.remove(c);
 	}
 
-	public void addItem(String cartId, String productId) {
+	public void addItem(Cart cartId, String productId) {
+		CartItem newItem = new CartItem();
+		newItem.setProduct(em.find(Product.class, productId));
+		newItem.setCart(em.find(Cart.class, cartId));
+		
+		em.persist(newItem);
 	}
+
 
 	@Override
 	public void removeItem(String cartId, String productId) {
@@ -46,9 +46,16 @@ public class InMemoryCartRepository implements CartRepository{
 	}
 
 	@Override
-	public List<Product> getPurchasedProduct() {
+	public List<Product> getPurchasedProduct(Cart cart) {
+		// TODO Auto-generated method stub
 		return null;
 	}
+	//
+//	@Override
+//	public List<Product> getPurchasedProduct(Cart cart) {
+//		List<CartItem> items = cart.getCartItems();
+//		return em.createQuery("SELECT p FROM Product, CartItems c WHERE c.product = p.IN ", );
+//	}
 
 	
 

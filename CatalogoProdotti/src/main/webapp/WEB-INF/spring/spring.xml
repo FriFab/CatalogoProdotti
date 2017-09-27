@@ -67,6 +67,6 @@
         <beans:property name="defaultLocale" value="it" />
     </beans:bean>
 
-	<context:component-scan base-package="it.progettosiw" />
+	<context:component-scan base-package="it.uniroma3" />
 
 </beans:beans>

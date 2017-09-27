@@ -31,10 +31,10 @@ public class User {
 		
 	}
 	
-	public String getCustomerID() {
+	public String getID() {
 		return userID;
 	}
-	public void setCustomerID(String userID) {
+	public void setID(String userID) {
 		this.userID = userID;
 	}
 	public String getName() {

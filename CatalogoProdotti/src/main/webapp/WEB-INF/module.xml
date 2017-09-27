@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns="urn:jboss:module:1.1" name="com.spring">
+    <resources>
+        <resource-root path="spring-web-4.3.2.RELEASE.jar" />
+    </resources>
+    <dependencies>
+        <module name="spring-context.api" />
+        <module name="spring-beans.api" />
+        <module name="spring-core.api"/>
+        <module name="commons-fileupload.api"/>
+        <module name="commons-io.api"/>
+        
+    </dependencies>
+</module>

@@ -8,11 +8,12 @@ import it.uniroma3.catalogo.domain.User;
 
 public interface UserRepository {
 
-	void create(User user);
 	void delete(String id);
 	void getUserById(String id);
 	Cart getCart(String UserId);
 	
 	List<Product> getAllProducts();
 	List<Product> getPurchasedProduct();
+	User info(String id);
+	void addUser(User newUser);
 }

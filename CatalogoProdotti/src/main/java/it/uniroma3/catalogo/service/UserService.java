@@ -1,11 +1,16 @@
 package it.uniroma3.catalogo.service;
 
-import java.util.List;
-
-import it.uniroma3.catalogo.domain.Product;
+import it.uniroma3.catalogo.domain.Cart;
+import it.uniroma3.catalogo.domain.User;
 
 public interface UserService {
 	
-	List<Product> getAllProducts();
+
+
+	User info(String id);
+
+	void addUser(User user);
+
+	Cart getCart(String id);
 
 }

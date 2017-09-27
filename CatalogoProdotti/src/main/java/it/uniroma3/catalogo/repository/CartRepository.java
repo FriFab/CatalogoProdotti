@@ -9,8 +9,8 @@ public interface CartRepository {
 	
 	void create(Cart cart);
 	void delete(String id);
-	void addItem(String cartId, String productId);
+	void addItem(Cart cartId, String productId);
 	void removeItem(String cartId, String productId);
-	List<Product> getPurchasedProduct();
+	List<Product> getPurchasedProduct(Cart cart);
 
 }

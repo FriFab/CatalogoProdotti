@@ -18,7 +18,7 @@ public class InMemoryUserRepository implements UserRepository{
 	EntityManager em;
 
 	@Override
-	public void create(User user) {		
+	public void addUser(User user) {		
 		em.persist(user);
 	}
 
@@ -51,6 +51,11 @@ public class InMemoryUserRepository implements UserRepository{
 	public List<Product> getPurchasedProduct() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	
+	public User info(String id) {
+		return em.createQuery("SELECT u FROM User WHERE u.id = "+id, User.class).getSingleResult();
 	}
 
 
